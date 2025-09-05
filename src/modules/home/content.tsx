@@ -1,0 +1,134 @@
+"use client";
+
+import TitleStyle from "@/components/TitleStyle";
+import Link from "next/link";
+import Image from "next/image";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
+
+export default function Content() {
+  function scrollToSection(headerSelector = "header") {
+    const el = document.getElementById("stay-ahead");
+    if (!el) return;
+    const headerEl = document.querySelector(
+      headerSelector,
+    ) as HTMLElement | null;
+    const headerHeight = headerEl?.getBoundingClientRect().height || 0;
+    const top =
+      el.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    window.scrollTo({ top, behavior: "smooth" });
+  }
+
+  return (
+    <div className="font-sans">
+      <main className="">
+        <div className="relative mb-25 aspect-[1920/1279] overflow-hidden">
+          <video
+            className="absolute z-0 h-full w-full scale-180 object-cover"
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/banner-video.mp4" type="video/mp4" />
+          </video>
+          <div className="absolute top-0 left-0 z-10 h-full w-full bg-(image:--bg-image-gradient)"></div>
+          <div className="relative z-20 px-60 pt-60 text-white">
+            <div className="mb-12 text-[64px]/19 font-semibold">
+              Ｗe are
+              <br /> Delta ESG Consulting
+              <br /> Turn ESG ambition into measurable
+              <br /> impact.
+            </div>
+            <p className="mb-[70px] text-[28px]/11 italic">
+              We help organizations translate ESG goals into actionable
+              strategies—driven by data, <br />
+              guided by expertise, and built for real-world results.
+            </p>
+            <Link
+              href="/contact"
+              className="bg-main-blue rounded-md px-12 py-4 text-2xl"
+            >
+              Contact Us
+            </Link>
+            <div className="flex place-content-center">
+              <Image
+                className="mt-7 cursor-pointer"
+                src="/images/svg/arrow-down.svg"
+                width={38}
+                height={38}
+                alt="arrow-down"
+                onClick={() => scrollToSection()}
+              />
+            </div>
+          </div>
+        </div>
+        <section id="stay-ahead">
+          <div className="flex flex-col place-items-center">
+            <TitleStyle className="mb-8" />
+            <h2 className="mb-2 text-[64px]/19 font-semibold">Stay Ahead.</h2>
+            <span className="mb-12 text-2xl">
+              Act on the ESG Trends That Matter
+            </span>
+            <div className="relative">
+              {/* <Swiper loop={true}>
+                <SwiperSlide>
+                  <Image
+                    src="/images/banner-01.jpg"
+                    width={1920}
+                    height={576}
+                    alt="banner"
+                  />
+                </SwiperSlide>
+                <SwiperSlide>Slide2</SwiperSlide>
+                <SwiperSlide>Slide3</SwiperSlide>
+              </Swiper> */}
+              <Image
+                src="/images/banner-01.jpg"
+                width={1920}
+                height={576}
+                alt="banner"
+              />
+              <div className="relative top-[107px] right-60 left-60 z-10 flex gap-x-[122px]">
+                <article className="flex-1 text-white">
+                  <h3 className="text-[40px] font-semibold">
+                    Industry Alliances (TCA)
+                  </h3>
+                  <p className="text-2xl">
+                    In partnership with TCA, we drive cross-sector ESG
+                    innovation and build momentum for sustainable
+                    transformation.
+                  </p>
+                </article>
+                <div className="flex flex-col">
+                  <div></div>
+                  <Swiper
+                    loop={true}
+                    slidesPerView={3}
+                    spaceBetween={25}
+                    className="flex-2 p-6 **:data-swiper-slide-index:aspect-[284/398] **:data-swiper-slide-index:overflow-hidden **:data-swiper-slide-index:rounded-md"
+                  >
+                    <SwiperSlide>
+                      {/* <Image
+                        src="/images/banner-01.jpg"
+                        width={1920}
+                        height={576}
+                        alt="banner"
+                        className="h-full w-full object-cover"
+                      /> */}
+                      <div className="bg-[url('/images/banner-01.jpg')] bg-cover bg-no-repeat"></div>
+                    </SwiperSlide>
+                    <SwiperSlide>Slide2</SwiperSlide>
+                    <SwiperSlide>Slide3</SwiperSlide>
+                  </Swiper>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}

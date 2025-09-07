@@ -119,51 +119,38 @@ export default function Content() {
                     transformation.
                   </p>
                 </article>
-                <div className="flex w-full max-w-238 flex-col">
+                <div className="flex w-full max-w-238 flex-col rounded-md bg-white p-6 shadow-[0_0_24px_0_#0000001a]">
                   <div></div>
                   <div className="w-full">
                     <Swiper
                       slidesPerView={3}
                       spaceBetween={25}
-                      className="p-6 **:data-swiper-slide-index:aspect-[284/398] **:data-swiper-slide-index:overflow-hidden **:data-swiper-slide-index:rounded-md"
+                      className="p-6 **:[.swiper-slide]:aspect-[284/398] **:[.swiper-slide]:overflow-hidden **:[.swiper-slide]:rounded-md"
                     >
                       {banner.map((bannerImage, index) => (
-                        <SwiperSlide key={index}>
+                        <SwiperSlide
+                          className="group relative"
+                          key={index}
+                          onMouseEnter={() => handleMouseEnter(bannerImage)}
+                        >
+                          <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
+                            <Image
+                              src={bannerImage}
+                              width={284}
+                              height={208}
+                              alt="banner"
+                            />
+                          </div>
                           <div
-                            className={`h-full w-full cursor-pointer bg-[url('${bannerImage}')] bg-cover bg-center bg-no-repeat`}
-                            onMouseEnter={() => handleMouseEnter(bannerImage)}
-                          ></div>
+                            className="absolute top-0 left-0 hidden h-full w-full bg-cover bg-center bg-no-repeat bg-blend-multiply group-hover:block group-hover:bg-[#0041C199]"
+                            style={{ backgroundImage: `url(${bannerImage})` }}
+                          >
+                            <h3 className="text-2xl font-semibold text-white">
+                              Industry Alliances (TCA)
+                            </h3>
+                          </div>
                         </SwiperSlide>
                       ))}
-
-                      {/* <SwiperSlide>
-                        <div
-                          className="h-full w-full cursor-pointer bg-[url('/images/banner-01.jpg')] bg-cover bg-center bg-no-repeat"
-                          onMouseEnter={() =>
-                            handleMouseEnter("/images/banner-01.jpg")
-                          }
-                        ></div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div
-                          className="flex h-full w-full cursor-pointer items-center justify-center bg-gray-200"
-                          onMouseEnter={() =>
-                            handleMouseEnter("/images/banner-02.jpg")
-                          }
-                        >
-                          Slide2
-                        </div>
-                      </SwiperSlide>
-                      <SwiperSlide>
-                        <div
-                          className="flex h-full w-full cursor-pointer items-center justify-center bg-gray-200"
-                          onMouseEnter={() =>
-                            handleMouseEnter("/images/banner-03.jpg")
-                          }
-                        >
-                          Slide3
-                        </div>
-                      </SwiperSlide> */}
                     </Swiper>
                   </div>
                 </div>

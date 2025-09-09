@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+// import { Link } from "next-view-transitions";
 
 export default function Header() {
   return (
@@ -33,7 +34,9 @@ export default function Header() {
             </ul>
           </li>
           <li className="">Success Stories</li>
-          <li className="">About us</li>
+          <li className="">
+            <Link href="/about">About us</Link>
+          </li>
           <li className="">ESG Portal</li>
         </ul>
         <div className="flex items-center gap-x-5">

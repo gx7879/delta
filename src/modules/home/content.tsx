@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useState } from "react";
 import { useRef } from "react";
+import { motion } from "framer-motion";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -16,7 +17,7 @@ export default function Content() {
   const [fade, setFade] = useState(true);
   const fadeRef = useRef<HTMLDivElement>(null);
 
-  const [banner, setBanner] = useState([
+  const [banner] = useState([
     "/images/banner-01.jpg",
     "/images/banner-02.jpg",
     "/images/banner-03.jpg",
@@ -25,12 +26,11 @@ export default function Content() {
   function scrollToSection(headerSelector = "header") {
     const el = document.getElementById("stay-ahead");
     if (!el) return;
-    const headerEl = document.querySelector(
-      headerSelector,
-    ) as HTMLElement | null;
-    const headerHeight = headerEl?.getBoundingClientRect().height || 0;
-    const top =
-      el.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    // const headerEl = document.querySelector(
+    //   headerSelector,
+    // ) as HTMLElement | null;
+    // const headerHeight = headerEl?.getBoundingClientRect().height || 0;
+    const top = el.getBoundingClientRect().top + window.pageYOffset;
     window.scrollTo({ top, behavior: "smooth" });
   }
 
@@ -57,7 +57,13 @@ export default function Content() {
             <source src="/banner-video.mp4" type="video/mp4" />
           </video>
           <div className="absolute top-0 left-0 z-10 h-full w-full bg-(image:--bg-image-gradient)"></div>
-          <div className="relative z-20 px-60 pt-60 text-white">
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="relative z-20 px-60 pt-60 text-white"
+          >
             <div className="mb-12 text-[64px]/19 font-semibold">
               Ｗe are
               <br /> Delta ESG Consulting
@@ -85,7 +91,7 @@ export default function Content() {
                 onClick={() => scrollToSection()}
               />
             </div>
-          </div>
+          </motion.div>
         </div>
         <section id="stay-ahead" className="mb-60">
           <div className="flex flex-col place-items-center">
@@ -138,7 +144,7 @@ export default function Content() {
                               src={bannerImage}
                               width={284}
                               height={208}
-                              alt="banner"
+                              alt={`Banner image ${index + 1}`}
                             />
                           </div>
                           <div

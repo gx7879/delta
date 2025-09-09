@@ -11,6 +11,15 @@
   );
 }
 
+:root {
+  --view-transition-duration: 1s;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--view-transition-duration);
+}
+
 .swiper {
   width: 100%;
   height: 100%;

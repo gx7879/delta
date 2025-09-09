@@ -1,3 +1,3 @@
 export default function User() {
-  return <div>User Page</div>;
+  return <div className="h-270 bg-amber-300">User Page</div>;
 }

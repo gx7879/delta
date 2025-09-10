@@ -4,6 +4,7 @@ import TitleStyle from "@/components/TitleStyle";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel } from "swiper/modules";
 import { useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
@@ -21,9 +22,10 @@ export default function Content() {
     "/images/banner-01.jpg",
     "/images/banner-02.jpg",
     "/images/banner-03.jpg",
+    "/images/banner-04.jpg",
   ]);
 
-  function scrollToSection(headerSelector = "header") {
+  function scrollToSection() {
     const el = document.getElementById("stay-ahead");
     if (!el) return;
     // const headerEl = document.querySelector(
@@ -103,16 +105,20 @@ export default function Content() {
             <div className="relative w-full">
               <div
                 ref={fadeRef}
-                className={`transition-opacity duration-500 ${fade ? "opacity-100" : "opacity-0"}`}
+                className={`transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`}
                 style={{ position: "relative", width: "100%", height: "576px" }}
               >
-                <Image
+                {/* <Image
                   src={mainImage}
                   width={1920}
                   height={576}
                   alt="banner"
                   style={{ objectFit: "cover" }}
-                />
+                /> */}
+                <div
+                  className="h-full w-full bg-cover bg-center"
+                  style={{ backgroundImage: `url(${mainImage})` }}
+                ></div>
               </div>
               <div className="absolute right-0 bottom-0 left-0 z-10 mx-auto -mb-13 flex w-full max-w-360 gap-x-[122px]">
                 <article className="flex-1 text-white">
@@ -162,6 +168,56 @@ export default function Content() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+        <section>
+          <div className="flex flex-col place-items-center">
+            <TitleStyle className="mb-8" />
+            <h2 className="mb-2 text-[64px]/19 font-semibold">
+              Build. Engage. Decarbonize.
+            </h2>
+            <span className="mb-12 text-2xl">
+              Explore how our tailored ESG services turn strategies into
+              measurable outcomes
+            </span>
+          </div>
+          <div className="h-133">
+            <Swiper
+              direction={"vertical"}
+              slidesPerView={1}
+              spaceBetween={30}
+              mousewheel={true}
+              modules={[Mousewheel]}
+              className="mySwiper"
+            >
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 1</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 2</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 3</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 4</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 5</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 6</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 7</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 8</div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <div className="h-full bg-amber-300">Slide 9</div>
+              </SwiperSlide>
+            </Swiper>
           </div>
         </section>
       </main>

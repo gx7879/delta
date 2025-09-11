@@ -236,6 +236,7 @@ export default function Content() {
               spaceBetween={30}
               mousewheel={true}
               modules={[Mousewheel]}
+              effect={"slide"}
               className="mySwiper"
             >
               <SwiperSlide>
@@ -266,6 +267,43 @@ export default function Content() {
                 <div className="h-full bg-amber-300">Slide 9</div>
               </SwiperSlide>
             </Swiper>
+          </div>
+        </section>
+        <section className="py-22.5">
+          <div className="mx-auto max-w-378">
+            <div className="flex">
+              <div className="flex flex-1 flex-col px-16 py-30">
+                <div className="flex flex-col place-items-start">
+                  <TitleStyle className="mb-8" />
+                  <h2 className="mb-6 text-[32px]/11 font-semibold">
+                    The AI ESG Portal
+                  </h2>
+                  <span className="mb-12 text-lg">
+                    Sed ut perspiciatis, unde omnis iste natus error sit
+                    voluptatem accusantium doloremque laudantium, totam rem
+                    aperiam eaque ipsa, quae ab illo inventore veritatis et
+                    quasi
+                  </span>
+                </div>
+                <div className="flex gap-x-4">
+                  <button className="bg-main-blue cursor-pointer rounded-sm px-5 py-4 text-white">
+                    Contact Us
+                  </button>
+                  <button className="text-main-blue cursor-pointer rounded-sm px-5 py-4">
+                    Sign up
+                  </button>
+                </div>
+              </div>
+              <div className="flex-1">
+                <Image
+                  src="/images/section-image-01.jpg"
+                  width={756}
+                  height={588}
+                  alt="section-image-01"
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>

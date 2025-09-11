@@ -14,8 +14,9 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 export default function Content() {
-  const [mainImage, setMainImage] = useState("/images/banner-01.jpg");
-  const [fade, setFade] = useState(true);
+  // const [mainImage, setMainImage] = useState("/images/banner-01.jpg");
+  // const [fade, setFade] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const fadeRef = useRef<HTMLDivElement>(null);
 
   const [banner] = useState([
@@ -36,14 +37,15 @@ export default function Content() {
     window.scrollTo({ top, behavior: "smooth" });
   }
 
-  function handleMouseEnter(image: string) {
-    if (mainImage !== image) {
-      setFade(false);
-      setTimeout(() => {
-        setMainImage(image);
-        setFade(true);
-      }, 300);
-    }
+  function handleMouseEnter(index: number) {
+    // if (mainImage !== image) {
+    //   setFade(false);
+    //   setTimeout(() => {
+    //     setMainImage(image);
+    //     setFade(true);
+    //   }, 300);
+    // }
+    setCurrentIndex(index);
   }
 
   return (
@@ -103,22 +105,18 @@ export default function Content() {
               Act on the ESG Trends That Matter
             </span>
             <div className="relative w-full">
+              {/* className={`transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`} */}
               <div
                 ref={fadeRef}
-                className={`transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`}
                 style={{ position: "relative", width: "100%", height: "576px" }}
               >
-                {/* <Image
-                  src={mainImage}
-                  width={1920}
-                  height={576}
-                  alt="banner"
-                  style={{ objectFit: "cover" }}
-                /> */}
-                <div
-                  className="h-full w-full bg-cover bg-center"
-                  style={{ backgroundImage: `url(${mainImage})` }}
-                ></div>
+                {banner.map((img, index) => (
+                  <div
+                    key={index}
+                    className={`h-full w-full bg-cover bg-center ${currentIndex === index ? "opacity-100" : "opacity-0"} transition-opacity duration-1000`}
+                    style={{ backgroundImage: `url(${img})` }}
+                  ></div>
+                ))}
               </div>
               <div className="absolute right-0 bottom-0 left-0 z-10 mx-auto -mb-13 flex w-full max-w-360 gap-x-[122px]">
                 <article className="flex-1 text-white">
@@ -143,7 +141,7 @@ export default function Content() {
                         <SwiperSlide
                           className="group relative"
                           key={index}
-                          onMouseEnter={() => handleMouseEnter(bannerImage)}
+                          onMouseEnter={() => handleMouseEnter(index)}
                         >
                           <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
                             <Image

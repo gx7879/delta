@@ -4,6 +4,7 @@ import TitleStyle from "@/components/TitleStyle";
 import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { Swiper as SwiperRef } from "swiper";
 import { Mousewheel } from "swiper/modules";
 import { useState } from "react";
 import { useRef } from "react";
@@ -14,16 +15,15 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 
 export default function Content() {
-  // const [mainImage, setMainImage] = useState("/images/banner-01.jpg");
-  // const [fade, setFade] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const fadeRef = useRef<HTMLDivElement>(null);
 
   const [banner] = useState([
     "/images/banner-01.jpg",
-    "/images/banner-02.jpg",
-    "/images/banner-03.jpg",
-    "/images/banner-04.jpg",
+    "https://picsum.photos/id/29/1920/576",
+    "https://picsum.photos/id/49/1920/576",
+    "https://picsum.photos/id/77/1920/576",
+    "https://picsum.photos/id/256/1920/576",
   ]);
 
   function scrollToSection() {
@@ -38,14 +38,19 @@ export default function Content() {
   }
 
   function handleMouseEnter(index: number) {
-    // if (mainImage !== image) {
-    //   setFade(false);
-    //   setTimeout(() => {
-    //     setMainImage(image);
-    //     setFade(true);
-    //   }, 300);
-    // }
     setCurrentIndex(index);
+  }
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  function swiperAction(action: string) {
+    if (action === "prev") {
+      swiperRef.current?.slidePrev();
+    } else if (action === "next") {
+      swiperRef.current?.slideNext();
+    }
+    // if (typeof swiperRef.current?.realIndex === "number") {
+    handleMouseEnter(swiperRef.current?.realIndex || 0);
+    // }
   }
 
   return (
@@ -113,7 +118,7 @@ export default function Content() {
                 {banner.map((img, index) => (
                   <div
                     key={index}
-                    className={`h-full w-full bg-cover bg-center ${currentIndex === index ? "opacity-100" : "opacity-0"} transition-opacity duration-1000`}
+                    className={`absolute h-full w-full bg-cover bg-center ${currentIndex === index ? "opacity-100" : "opacity-0"} transition-opacity duration-1000`}
                     style={{ backgroundImage: `url(${img})` }}
                   ></div>
                 ))}
@@ -129,13 +134,60 @@ export default function Content() {
                     transformation.
                   </p>
                 </article>
-                <div className="flex w-full max-w-238 flex-col rounded-md bg-white p-6 shadow-[0_0_24px_0_#0000001a]">
-                  <div></div>
-                  <div className="w-full">
+                <div className="">
+                  <div className="mb-4 flex justify-end gap-x-2">
+                    <button
+                      onClick={() => swiperAction("prev")}
+                      className="flex size-14 cursor-pointer items-center justify-center rounded-sm border border-white text-white"
+                    >
+                      {
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M15.75 19.5 8.25 12l7.5-7.5"
+                          />
+                        </svg>
+                      }
+                    </button>
+                    <button
+                      onClick={() => swiperAction("next")}
+                      className="flex size-14 cursor-pointer items-center justify-center rounded-sm border border-white text-white"
+                    >
+                      {
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="size-6"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      }
+                    </button>
+                  </div>
+                  <div className="flex w-full max-w-238 rounded-md bg-white p-6 shadow-[0_0_24px_0_#0000001a]">
                     <Swiper
-                      slidesPerView={3}
+                      slidesPerView={3.3}
                       spaceBetween={25}
+                      loop={banner.length >= 4}
                       className="p-6 **:[.swiper-slide]:aspect-[284/398] **:[.swiper-slide]:overflow-hidden **:[.swiper-slide]:rounded-md"
+                      onInit={(swiper) => {
+                        swiperRef.current = swiper;
+                      }}
                     >
                       {banner.map((bannerImage, index) => (
                         <SwiperSlide

@@ -48,9 +48,7 @@ export default function Content() {
     } else if (action === "next") {
       swiperRef.current?.slideNext();
     }
-    // if (typeof swiperRef.current?.realIndex === "number") {
-    handleMouseEnter(swiperRef.current?.realIndex || 0);
-    // }
+    handleMouseEnter(swiperRef.current?.realIndex ?? 0);
   }
 
   return (

@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
 @theme {
-  --color-main-blue: #0087DC;
-  --color-main-black: #1E1E1E;
+  --color-main-blue: #0087dc;
+  --color-main-black: #1e1e1e;
   --color-main-gray: #414141;
   --color-light-gray: #969696;
-  --bg-image-gradient: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(141.6deg, rgba(0,0,0,0) 9.26%, rgba(131,167,67,0.12) 48.83%, rgba(0,126,215,0.6) 87.99%);
+  --bg-image-gradient:
+    linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    linear-gradient(
+      141.6deg,
+      rgba(0, 0, 0, 0) 9.26%,
+      rgba(131, 167, 67, 0.12) 48.83%,
+      rgba(0, 126, 215, 0.6) 87.99%
+    );
   --bg-image-white-fade: linear-gradient(
     180deg,
     #fff 41.32%,
@@ -44,27 +51,31 @@
   object-fit: cover;
 }
 
-/* :root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* .mySwiper .swiper-pagination {
+  position: absolute;
+  right: 16px;
+  left: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+} */
+/* .mySwiper .swiper-pagination-bullets,
+.mySwiper .swiper-pagination-vertical.swiper-pagination-bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+} */
+/* .mySwiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  opacity: 0.5;
+  background: #fff;
+  transition: all 0.2s ease-out;
 }
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.mySwiper .swiper-pagination-bullet-active {
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: #64d7d7;
+  box-shadow: 0 0 0 3px rgba(100, 215, 215, 0.25);
 } */

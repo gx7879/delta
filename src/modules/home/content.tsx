@@ -5,11 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import type { Swiper as SwiperRef } from "swiper";
-import { Mousewheel } from "swiper/modules";
 import { useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
-// import SwiperParallax from "@/components/SwiperParallax";
+import SwiperParallax from "@/components/SwiperParallax";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -230,9 +229,9 @@ export default function Content() {
               measurable outcomes
             </span>
           </div>
-          <div className="h-133">
-            {/* <SwiperParallax /> */}
-            <Swiper
+          <div className="h-[677px] py-18">
+            <SwiperParallax />
+            {/* <Swiper
               direction={"vertical"}
               slidesPerView={1}
               spaceBetween={30}
@@ -268,7 +267,7 @@ export default function Content() {
               <SwiperSlide>
                 <div className="h-full bg-amber-300">Slide 9</div>
               </SwiperSlide>
-            </Swiper>
+            </Swiper> */}
           </div>
         </section>
         <section className="bg-[url(/images/section-image-02.jpg)] bg-contain bg-bottom bg-no-repeat pt-50 pb-60">

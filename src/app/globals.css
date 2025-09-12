@@ -3,6 +3,8 @@
 @theme {
   --color-main-blue: #0087DC;
   --color-main-black: #1E1E1E;
+  --color-main-gray: #414141;
+  --color-light-gray: #969696;
   --bg-image-gradient: linear-gradient(0deg, rgba(0,0,0,0.3), rgba(0,0,0,0.3)), linear-gradient(141.6deg, rgba(0,0,0,0) 9.26%, rgba(131,167,67,0.12) 48.83%, rgba(0,126,215,0.6) 87.99%);
   --bg-image-white-fade: linear-gradient(
     180deg,

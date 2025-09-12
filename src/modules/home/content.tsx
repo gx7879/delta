@@ -9,6 +9,7 @@ import { Mousewheel } from "swiper/modules";
 import { useState } from "react";
 import { useRef } from "react";
 import { motion } from "framer-motion";
+// import SwiperParallax from "@/components/SwiperParallax";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -218,7 +219,7 @@ export default function Content() {
             </div>
           </div>
         </section>
-        <section>
+        <section className="pb-60">
           <div className="flex flex-col place-items-center">
             <TitleStyle className="mb-8" />
             <h2 className="mb-2 text-[64px]/19 font-semibold">
@@ -230,6 +231,7 @@ export default function Content() {
             </span>
           </div>
           <div className="h-133">
+            {/* <SwiperParallax /> */}
             <Swiper
               direction={"vertical"}
               slidesPerView={1}
@@ -269,8 +271,8 @@ export default function Content() {
             </Swiper>
           </div>
         </section>
-        <section className="py-22.5">
-          <div className="mx-auto max-w-378">
+        <section className="bg-[url(/images/section-image-02.jpg)] bg-contain bg-bottom bg-no-repeat pt-50 pb-60">
+          <div className="mx-auto mb-[313px] max-w-426.5 overflow-hidden rounded-md bg-white shadow-[0_0_24px_0_#0000001A]">
             <div className="flex">
               <div className="flex flex-1 flex-col px-16 py-30">
                 <div className="flex flex-col place-items-start">
@@ -300,7 +302,58 @@ export default function Content() {
                   width={756}
                   height={588}
                   alt="section-image-01"
+                  className="w-full"
                   priority
+                />
+              </div>
+            </div>
+          </div>
+          <div className="mx-auto max-w-360 text-white">
+            <div className="max-w-299">
+              <h2 className="mb-6 text-[52px]/18 font-semibold">
+                Sustainability Impact in Numbers
+              </h2>
+              <span className="mb-30 block text-xl">
+                Our Global Achievement in ESG Transformation.
+              </span>
+              <div className="mb-16 grid grid-cols-3 gap-x-6 pb-10">
+                <div>
+                  <div className="text-[80px]/25 font-semibold">281</div>
+                  <span className="text-xl">Energy Saving Success Stories</span>
+                </div>
+                <div>
+                  <div className="text-[80px]/25 font-semibold">10</div>
+                  <span className="text-xl">Ecosystem Partners</span>
+                </div>
+                <div>
+                  <div className="text-[80px]/25 font-semibold">30 +</div>
+                  <span className="text-xl">Number of Professional</span>
+                </div>
+              </div>
+              <div className="flex gap-x-9 border-y border-white py-9">
+                <Image
+                  src="/images/microsoft.png"
+                  width={176}
+                  height={52}
+                  alt="microsoft"
+                />
+                <Image
+                  src="/images/google.png"
+                  width={178}
+                  height={52}
+                  alt="google"
+                />
+                <Image
+                  src="/images/renato_lab.png"
+                  width={146}
+                  height={52}
+                  alt="renato_lab"
+                />
+                <Image
+                  src="/images/KPMG.png"
+                  width={125}
+                  height={52}
+                  alt="KPMG"
                 />
               </div>
             </div>

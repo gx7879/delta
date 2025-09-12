@@ -49,10 +49,10 @@ const SwiperParallax = () => {
     <div className="h-full w-full overflow-hidden">
       <Swiper
         direction="vertical"
-        speed={1000}
+        speed={500}
         parallax={true}
         effect="fade"
-        mousewheel={true}
+        mousewheel={{ releaseOnEdges: true }}
         modules={[Parallax, EffectFade, Mousewheel]}
         className="h-full w-full"
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}

@@ -102,11 +102,19 @@ export default function Content() {
         </div>
         <section id="stay-ahead" className="mb-60">
           <div className="flex flex-col place-items-center">
-            <TitleStyle className="mb-8" />
-            <h2 className="mb-2 text-[64px]/19 font-semibold">Stay Ahead.</h2>
-            <span className="mb-12 text-2xl">
-              Act on the ESG Trends That Matter
-            </span>
+            <motion.div
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-12"
+            >
+              <TitleStyle className="mb-8" />
+              <h2 className="mb-2 text-[64px]/19 font-semibold">Stay Ahead.</h2>
+              <span className="text-2xl">
+                Act on the ESG Trends That Matter
+              </span>
+            </motion.div>
             <div className="relative w-full">
               {/* className={`transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`} */}
               <div
@@ -220,58 +228,35 @@ export default function Content() {
         </section>
         <section className="pb-60">
           <div className="flex flex-col place-items-center">
-            <TitleStyle className="mb-8" />
-            <h2 className="mb-2 text-[64px]/19 font-semibold">
-              Build. Engage. Decarbonize.
-            </h2>
-            <span className="mb-12 text-2xl">
-              Explore how our tailored ESG services turn strategies into
-              measurable outcomes
-            </span>
+            <motion.div
+              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              viewport={{ once: true, amount: 0.8 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="mb-12"
+            >
+              <TitleStyle className="mb-8" />
+              <h2 className="mb-2 text-[64px]/19 font-semibold">
+                Build. Engage. Decarbonize.
+              </h2>
+              <span className="text-2xl">
+                Explore how our tailored ESG services turn strategies into
+                measurable outcomes
+              </span>
+            </motion.div>
           </div>
           <div className="h-[677px] py-18">
             <SwiperParallax />
-            {/* <Swiper
-              direction={"vertical"}
-              slidesPerView={1}
-              spaceBetween={30}
-              mousewheel={true}
-              modules={[Mousewheel]}
-              effect={"slide"}
-              className="mySwiper"
-            >
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 1</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 2</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 3</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 4</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 5</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 6</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 7</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 8</div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <div className="h-full bg-amber-300">Slide 9</div>
-              </SwiperSlide>
-            </Swiper> */}
           </div>
         </section>
         <section className="bg-[url(/images/section-image-02.jpg)] bg-contain bg-bottom bg-no-repeat pt-50 pb-60">
-          <div className="mx-auto mb-[313px] max-w-426.5 overflow-hidden rounded-md bg-white shadow-[0_0_24px_0_#0000001A]">
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mx-auto mb-[313px] max-w-426.5 overflow-hidden rounded-md bg-white shadow-[0_0_24px_0_#0000001A]"
+          >
             <div className="flex">
               <div className="flex flex-1 flex-col px-16 py-30">
                 <div className="flex flex-col place-items-start">
@@ -306,8 +291,14 @@ export default function Content() {
                 />
               </div>
             </div>
-          </div>
-          <div className="mx-auto max-w-360 text-white">
+          </motion.div>
+          <motion.div
+            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            viewport={{ once: true, amount: 0.8 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mx-auto max-w-360 text-white"
+          >
             <div className="max-w-299">
               <h2 className="mb-6 text-[52px]/18 font-semibold">
                 Sustainability Impact in Numbers
@@ -356,7 +347,7 @@ export default function Content() {
                 />
               </div>
             </div>
-          </div>
+          </motion.div>
         </section>
       </main>
     </div>

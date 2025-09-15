@@ -66,7 +66,7 @@ export default function Content() {
           <div className="absolute top-0 left-0 z-10 h-full w-full bg-(image:--bg-image-gradient)"></div>
           <motion.div
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative z-20 px-60 pt-60 text-white"
@@ -104,7 +104,7 @@ export default function Content() {
           <div className="flex flex-col place-items-center">
             <motion.div
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 100 }}
               viewport={{ once: true, amount: 0.8 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-12"
@@ -256,7 +256,7 @@ export default function Content() {
           <div className="flex flex-col place-items-center">
             <motion.div
               whileInView={{ opacity: 1, y: 0 }}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 100 }}
               viewport={{ once: true, amount: 0.8 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="mb-12"
@@ -278,7 +278,7 @@ export default function Content() {
         <section className="bg-[url(/images/section-image-02.jpg)] bg-contain bg-bottom bg-no-repeat pt-50 pb-60">
           <motion.div
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mx-auto mb-[313px] max-w-426.5 overflow-hidden rounded-md bg-white shadow-[0_0_24px_0_#0000001A]"
@@ -320,7 +320,7 @@ export default function Content() {
           </motion.div>
           <motion.div
             whileInView={{ opacity: 1, y: 0 }}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             viewport={{ once: true, amount: 0.8 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="mx-auto max-w-360 text-white"

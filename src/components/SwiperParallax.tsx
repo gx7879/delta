@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Mousewheel, Parallax } from "swiper/modules";
 // import { motion } from "framer-motion";
+import { Swiper as SwiperRef } from "swiper/types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -44,6 +45,34 @@ const slideContents: SlideContent[] = [
 
 const SwiperParallax = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperRef | null>(null);
+
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     if (swiperRef.current && swiperRef.current.params) {
+  //       console.log("111");
+  //       swiperRef.current.params.mousewheel = { releaseOnEdges: true };
+  //     }
+  //   }, 10000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
+  function startReleaseOnEdges() {
+    if (swiperRef.current && swiperRef.current.params) {
+      setTimeout(() => {
+        if (swiperRef.current && swiperRef.current.params) {
+          swiperRef.current.params.mousewheel = { releaseOnEdges: true };
+        }
+      }, 500);
+    }
+  }
+
+  function slideChanged(swiper: SwiperRef) {
+    setActiveIndex(swiper.activeIndex);
+    if (swiperRef.current && swiperRef.current.params) {
+      swiperRef.current.params.mousewheel = { releaseOnEdges: false };
+    }
+  }
 
   return (
     <div className="h-full w-full overflow-hidden">
@@ -52,10 +81,15 @@ const SwiperParallax = () => {
         speed={500}
         parallax={true}
         effect="fade"
-        mousewheel={{ releaseOnEdges: true }}
+        mousewheel={{ releaseOnEdges: false }}
         modules={[Parallax, EffectFade, Mousewheel]}
         className="h-full w-full"
-        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+        onSlideChange={slideChanged}
+        onInit={(swiper) => {
+          swiperRef.current = swiper;
+        }}
+        onReachBeginning={startReleaseOnEdges}
+        onReachEnd={startReleaseOnEdges}
       >
         {slideContents.map((slide) => (
           <SwiperSlide key={slide.id} className="relative h-full w-full">

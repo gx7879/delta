@@ -61,7 +61,7 @@ const SwiperParallax = () => {
           <SwiperSlide key={slide.id} className="relative h-full w-full">
             <div
               className="absolute inset-0 ml-auto grid max-w-420 grid-cols-[1fr_948px] overflow-hidden"
-              data-swiper-parallax="-300"
+              data-swiper-parallax="-500"
             >
               <div className="flex flex-col items-start justify-center pr-36.5 text-start">
                 <h5 className="mb-6 text-4xl font-semibold">{slide.title}</h5>

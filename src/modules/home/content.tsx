@@ -144,7 +144,7 @@ export default function Content() {
                   <div className="mb-4 flex justify-end gap-x-2">
                     <button
                       onClick={() => swiperAction("prev")}
-                      className="flex size-14 cursor-pointer items-center justify-center rounded-sm border border-white text-white"
+                      className="flex size-14 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
                     >
                       {
                         <svg
@@ -165,7 +165,7 @@ export default function Content() {
                     </button>
                     <button
                       onClick={() => swiperAction("next")}
-                      className="flex size-14 cursor-pointer items-center justify-center rounded-sm border border-white text-white"
+                      className="flex size-14 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
                     >
                       {
                         <svg
@@ -197,20 +197,46 @@ export default function Content() {
                     >
                       {banner.map((bannerImage, index) => (
                         <SwiperSlide
-                          className="group relative"
+                          className="group relative aspect-[142/199]"
                           key={index}
                           onMouseEnter={() => handleMouseEnter(index)}
                         >
-                          <div className="aspect-[4/3] w-full overflow-hidden rounded-md">
-                            <Image
-                              src={bannerImage}
-                              width={284}
-                              height={208}
-                              alt={`Banner image ${index + 1}`}
-                            />
-                          </div>
+                          <Link
+                            href="/"
+                            className="flex h-full w-full flex-col"
+                          >
+                            <div className="mb-6 aspect-[71/52] overflow-hidden rounded-md">
+                              <Image
+                                src={bannerImage}
+                                width={284}
+                                height={208}
+                                alt={`Banner image ${index + 1}`}
+                              />
+                            </div>
+                            <h5 className="px-3 text-start text-xl font-semibold">
+                              Delta Electronics’ Roadmap Toward SBTi 2.0
+                              Compliance
+                            </h5>
+                            <span className="text-main-blue mt-auto flex items-center gap-x-4 self-end font-semibold">
+                              Learn More
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="25"
+                                fill="none"
+                              >
+                                <path
+                                  stroke="#0087DC"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="m10 16.5 4-4-4-4"
+                                />
+                              </svg>
+                            </span>
+                          </Link>
                           <div
-                            className="absolute top-0 left-0 hidden h-full w-full bg-cover bg-center bg-no-repeat bg-blend-multiply group-hover:block group-hover:bg-[#0041C199]"
+                            className="pointer-events-none absolute top-0 left-0 hidden h-full w-full bg-cover bg-center bg-no-repeat bg-blend-multiply group-hover:block group-hover:bg-[#0041C199]"
                             style={{ backgroundImage: `url(${bannerImage})` }}
                           >
                             <h3 className="text-2xl font-semibold text-white">

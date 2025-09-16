@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectFade, Mousewheel, Parallax } from "swiper/modules";
 // import { motion } from "framer-motion";

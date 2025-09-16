@@ -144,7 +144,7 @@ export default function Content() {
                   <div className="mb-4 flex justify-end gap-x-2">
                     <button
                       onClick={() => swiperAction("prev")}
-                      className="flex size-14 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
+                      className="flex size-13 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
                     >
                       {
                         <svg
@@ -165,7 +165,7 @@ export default function Content() {
                     </button>
                     <button
                       onClick={() => swiperAction("next")}
-                      className="flex size-14 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
+                      className="flex size-13 cursor-pointer items-center justify-center rounded-lg border border-white text-white"
                     >
                       {
                         <svg
@@ -236,12 +236,26 @@ export default function Content() {
                             </span>
                           </Link>
                           <div
-                            className="pointer-events-none absolute top-0 left-0 hidden h-full w-full bg-cover bg-center bg-no-repeat bg-blend-multiply group-hover:block group-hover:bg-[#0041C199]"
+                            className="pointer-events-none absolute top-0 left-0 hidden h-full w-full bg-cover bg-center bg-no-repeat bg-blend-multiply group-hover:flex group-hover:bg-[#0041C199]"
                             style={{ backgroundImage: `url(${bannerImage})` }}
                           >
-                            <h3 className="text-2xl font-semibold text-white">
-                              Industry Alliances (TCA)
-                            </h3>
+                            <div className="mt-auto flex items-center p-6 text-start text-xl font-semibold text-white">
+                              <span>Learn more about this insight</span>
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="25"
+                                fill="none"
+                              >
+                                <path
+                                  stroke="#ffffff"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  strokeWidth="2"
+                                  d="m10 16.5 4-4-4-4"
+                                />
+                              </svg>
+                            </div>
                           </div>
                         </SwiperSlide>
                       ))}
